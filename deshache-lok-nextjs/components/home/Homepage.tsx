@@ -349,6 +349,9 @@ const Homepage: React.FC<HomepageProps> = ({ articles }) => {
 
         <div className="pt-6 text-xs text-gray-400 font-semibold uppercase tracking-wider space-y-1">
           <p>© {new Date().getFullYear()} देशाचे लोक (siteget.in). सर्व हक्क सुरक्षित.</p>
+          <p className="font-serif italic capitalize text-[10px] text-gray-450 font-normal">
+            हे एक प्रगत आणि विश्वासार्ह डिजिटल वृत्तपत्र प्रणाली मॉडेल आहे.
+          </p>
         </div>
       </footer>
 
