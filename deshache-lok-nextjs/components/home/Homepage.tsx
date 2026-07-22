@@ -61,7 +61,7 @@ const Homepage: React.FC<HomepageProps> = ({ articles }) => {
   return (
     <div className="min-h-screen bg-[#fbfcfa] text-slate-800 font-sans selection:bg-red-700 selection:text-white pb-12">
 
-      {/* 1. TOP UTILITY HEADER RAIL 
+      {/* 1. TOP UTILITY HEADER RAIL */}
       <div className="bg-slate-900 text-slate-350 text-xs py-2 px-4 shadow-sm border-b border-slate-800 select-none">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-4">
@@ -91,7 +91,7 @@ const Homepage: React.FC<HomepageProps> = ({ articles }) => {
             </Link>
           </div>
         </div>
-      </div>*/
+      </div>
 
       {/* 2. BRAND MASTHEAD PLATE - Traditional Double Rulers */}
       <header className="max-w-7xl mx-auto px-4 py-6 text-center select-none">
