@@ -22,10 +22,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex flex-row justify-between items-center gap-2">
         {/* Logo + edition tag */}
         <Link href="/" className="flex flex-col items-start gap-1 shrink-0">
-          <span className="font-serif font-black text-xl text-white tracking-tight">
+          <span className="font-serif font-black text-2xl text-white tracking-tight">
             देशाचे लोक
           </span>
-          <span className="font-mono text-[10px] text-red-500 font-bold bg-red-950/50 px-2 py-0.5 rounded border border-red-900/30">
+          <span className="font-mono text-[9px] text-red-500 font-bold bg-red-950/50 px-2 py-0.5 rounded border border-red-900/30">
             आवृत्ती: डिजिटल विशेष
           </span>
         </Link>
