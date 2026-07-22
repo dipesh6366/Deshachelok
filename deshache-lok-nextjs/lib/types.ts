@@ -1,0 +1,22 @@
+export type Article = {
+  id: string;
+  headline: string;
+  subtitle: string;
+  summary: string;
+  content: string;
+  seoTitle: string;
+  seoDescription: string;
+  keywords: string[];
+  slug: string;
+  imageUrl?: string;
+  altText?: string;
+  imageCaption?: string;
+  status: 'draft' | 'published';
+  views: number;
+  createdAt: string;
+  updatedAt?: string;
+  publishedAt?: string | null;
+  authorId?: string;
+  authorEmail?: string;
+  reports?: number;
+};
