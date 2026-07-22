@@ -32,7 +32,7 @@ export default function Header() {
           </span>
           <span className="flex items-center gap-1">
             <Calendar className="h-3.5 w-3.5 text-slate-400" />
-            {selectedDateStr || "तारीख"}
+            [{selectedDateStr}]
           </span>
         </div>
         
