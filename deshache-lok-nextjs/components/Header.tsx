@@ -21,7 +21,7 @@ export default function Header() {
     <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 shadow-sm border-b border-slate-800 select-none">
       <div className="max-w-7xl mx-auto flex flex-row justify-between items-center gap-2">
         {/* Logo + edition tag */}
-        <Link href="/" className="flex flex-col items-start gap-1 shrink-0">
+        <Link href="/" className="flex flex-col items-start gap-1">
           <span className="font-serif font-black text-xl text-white tracking-tight">
             देशाचे लोक
           </span>
@@ -30,7 +30,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-3 flex-wrap justify-end">
+        <div className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <Calendar className="h-3.5 w-3.5 text-slate-400" />
             {selectedDateStr || "\u00A0"}
