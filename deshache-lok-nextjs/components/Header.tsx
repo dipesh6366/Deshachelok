@@ -8,52 +8,64 @@ export default function Header() {
   const { user, logout, isAuthenticated, isLoading } = useAuth();
 
   return (
-    <header className="bg-white border-b border-neutral-200 sticky top-0 z-10">
+    <header className="bg-white border-b-4 border-red-700 sticky top-0 z-10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <div className="bg-blue-600 text-white p-2 rounded">
-                <Newspaper size={24} />
-              </div>
-              <span className="font-bold text-xl tracking-tight">देशाचे लोक</span>
-            </Link>
-          </div>
+        <div className="flex justify-between items-center h-20">
+          
+          {/* Logo - Matching Homepage Style */}
+          <Link href="/" className="flex items-center gap-3">
+            <div className="bg-red-700 text-white p-3 rounded-lg">
+              <Newspaper size={28} />
+            </div>
+            <div>
+              <span className="font-serif font-black text-4xl tracking-tight text-gray-900">
+                देशाचे लोक
+              </span>
+              <p className="text-xs text-red-800 font-medium -mt-1">
+                सार्वभौमिक व पुरोगामी
+              </p>
+            </div>
+          </Link>
+
+          {/* Right Side Actions */}
           <div className="flex items-center gap-4">
-            {!isLoading &&
-              (isAuthenticated ? (
+            {!isLoading && (
+              isAuthenticated ? (
                 <>
                   <Link
                     href="/editor/new"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 transition-colors"
                   >
-                    <PenTool size={16} />
+                    <PenTool size={18} />
                     Write Article
                   </Link>
+
                   <Link
                     href="/editor/dashboard"
                     title="Dashboard"
-                    className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold ml-2 hover:bg-blue-200 transition-colors"
+                    className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center text-red-700 font-bold hover:bg-red-200 transition-colors"
                   >
                     {user?.email?.[0]?.toUpperCase() || 'U'}
                   </Link>
+
                   <button
                     onClick={logout}
-                    className="p-2 text-neutral-500 hover:text-neutral-700 hover:bg-neutral-100 rounded-full transition-colors"
+                    className="p-3 text-neutral-600 hover:text-red-700 hover:bg-red-50 rounded-full transition-colors"
                     title="Logout"
                   >
-                    <LogOut size={18} />
+                    <LogOut size={20} />
                   </button>
                 </>
               ) : (
                 <Link
                   href="/editor/new"
-                  className="inline-flex items-center gap-2 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 transition-colors"
                 >
-                  <PenTool size={16} />
+                  <PenTool size={18} />
                   Write Article
                 </Link>
-              ))}
+              )
+            )}
           </div>
         </div>
       </div>
