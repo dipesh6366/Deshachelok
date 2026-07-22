@@ -108,9 +108,9 @@ const Homepage: React.FC<HomepageProps> = ({ articles }) => {
 
         {/* Double Border Plate Info Strip */}
         <div className="news-border-double news-border-top-double mt-5 py-2.5 flex flex-col md:flex-row items-center justify-between text-xs text-gray-600 font-semibold gap-3">
-          <div>पुणे, मुंबई आणि संपूर्ण महाराष्ट्र</div>
+          <div>पुणे, मुंबई आणि संपूर्ण महाराष्ट्र • वर्ष १ • अंक ७२</div>
           <div className="font-serif italic text-gray-500">&quot;समृद्ध विचारांचा लोकपंथ&quot;</div>
-          <div>डिजिटल आवृत्ती • विनामूल्य</div>
+          <div>डिजिटल कल्पकता: siteget.in • विनामूल्य आवृत्ती</div>
         </div>
       </header>
 
@@ -348,7 +348,7 @@ const Homepage: React.FC<HomepageProps> = ({ articles }) => {
         </div>
 
         <div className="pt-6 text-xs text-gray-400 font-semibold uppercase tracking-wider space-y-1">
-          <p>© {new Date().getFullYear()} देशाचे लोक. सर्व हक्क सुरक्षित.</p>
+          <p>© {new Date().getFullYear()} देशाचे लोक (siteget.in). सर्व हक्क सुरक्षित.</p>
         </div>
       </footer>
 
