@@ -11,13 +11,15 @@ export default function Header() {
   const [currentTime, setCurrentTime] = useState("");
   const [selectedDateStr, setSelectedDateStr] = useState("");
 
-  // Real-time Marathi clock - exact same as homepage
   useEffect(() => {
-    const timer = setInterval(() => {
+    const updateTime = () => {
       const now = new Date();
       setSelectedDateStr(getMarathiDateString(now));
       setCurrentTime(getMarathiTimeString(now));
-    }, 1000);
+    };
+
+    updateTime(); // Initial call
+    const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
 
@@ -30,23 +32,23 @@ export default function Header() {
           </span>
           <span className="flex items-center gap-1">
             <Calendar className="h-3.5 w-3.5 text-slate-400" />
-            {selectedDateStr || "\u00A0"}
+            {selectedDateStr || "तारीख"}
           </span>
         </div>
         
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1 bg-slate-800 px-2 py-0.5 rounded text-white font-mono font-bold">
             <Clock className="h-3 w-3 text-red-400 animate-pulse" />
-            {currentTime || "\u00A0"}
+            {currentTime || "00:00:00"}
           </span>
           <span className="text-slate-500">|</span>
           <span className="text-[10px] uppercase font-bold text-slate-400">
             सत्यशोधक व पारदर्शक पत्रकारिता
           </span>
 
-          {/* Small profile icon only (no Write Article button) */}
+          {/* Profile + Logout - only for logged in users */}
           {!isLoading && isAuthenticated && (
-            <div className="flex items-center gap-2 ml-4">
+            <div className="flex items-center gap-2 ml-4 border-l border-slate-700 pl-4">
               <Link
                 href="/editor/dashboard"
                 title="Dashboard"
@@ -56,7 +58,7 @@ export default function Header() {
               </Link>
               <button
                 onClick={logout}
-                className="p-2 text-neutral-400 hover:text-white hover:bg-slate-800 rounded-full transition-colors"
+                className="p-1.5 text-neutral-400 hover:text-white hover:bg-slate-800 rounded-full transition-colors"
                 title="Logout"
               >
                 <LogOut size={18} />
