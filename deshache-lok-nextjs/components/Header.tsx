@@ -1,45 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { LogOut, Clock, Calendar, User } from 'lucide-react';
+import { Calendar, User } from 'lucide-react';
 import { useAuth } from '@/lib/AuthContext';
-import { getMarathiDateString, getMarathiTimeString } from '@/lib/dateUtils';
+import { getMarathiDateString } from '@/lib/dateUtils';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
-  const { user, logout, isAuthenticated, isLoading } = useAuth();
-  const [currentTime, setCurrentTime] = useState("");
+  const { isAuthenticated, isLoading, logout } = useAuth();
   const [selectedDateStr, setSelectedDateStr] = useState("");
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setSelectedDateStr(getMarathiDateString(now));
-      setCurrentTime(getMarathiTimeString(now));
-    };
-
-    updateTime(); // Initial call
-    const timer = setInterval(updateTime, 1000);
+    const updateDate = () => setSelectedDateStr(getMarathiDateString(new Date()));
+    updateDate(); // Initial call
+    const timer = setInterval(updateDate, 1000 * 30); // date only needs to tick occasionally
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 shadow-sm border-b border-slate-800 select-none">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-        <div className="flex items-center gap-4">
+        {/* Logo + edition tag */}
+        <Link href="/" className="flex flex-col items-center sm:items-start gap-1">
+          <span className="font-serif font-black text-xl text-white tracking-tight">
+            देशाचे लोक
+          </span>
           <span className="font-mono text-[10px] text-red-500 font-bold bg-red-950/50 px-2 py-0.5 rounded border border-red-900/30">
             आवृत्ती: डिजिटल विशेष
           </span>
+        </Link>
+
+        <div className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <Calendar className="h-3.5 w-3.5 text-slate-400" />
             {selectedDateStr || "\u00A0"}
-          </span>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <span className="flex items-center gap-1 bg-slate-800 px-2 py-0.5 rounded text-white font-mono font-bold">
-            <Clock className="h-3 w-3 text-red-400 animate-pulse" />
-            {currentTime || "\u00A0"}
           </span>
           <span className="text-slate-500">|</span>
           <span className="text-[10px] uppercase font-bold text-slate-400">
@@ -59,10 +53,10 @@ export default function Header() {
           {!isLoading && isAuthenticated && (
             <button
               onClick={logout}
-              className="p-1.5 text-neutral-400 hover:text-white hover:bg-slate-800 rounded-full transition-colors"
+              className="text-[10px] text-neutral-400 hover:text-white transition-colors underline ml-1"
               title="Logout"
             >
-              <LogOut size={18} />
+              Logout
             </button>
           )}
         </div>
