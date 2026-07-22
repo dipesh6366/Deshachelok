@@ -17,7 +17,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
   if (isLoading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
       </div>
     );
   }
@@ -132,7 +132,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-shadow"
                 placeholder="you@example.com"
               />
             </div>
@@ -149,7 +149,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
                         setError('');
                         setMessage('');
                       }}
-                      className="text-sm text-blue-600 hover:text-blue-800"
+                      className="text-sm text-red-600 hover:text-red-800"
                     >
                       Forgot password?
                     </button>
@@ -160,7 +160,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
                   required={!isForgotPassword}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                  className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-shadow"
                   placeholder="••••••••"
                   minLength={6}
                 />
@@ -170,7 +170,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              className="w-full py-2.5 px-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed mt-2"
             >
               {isSubmitting ? 'Please wait...' : isForgotPassword ? 'Send Reset Link' : isLogin ? 'Sign In' : 'Sign Up'}
             </button>
@@ -180,7 +180,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
                 <button
                   type="button"
                   onClick={() => setIsForgotPassword(false)}
-                  className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+                  className="text-sm text-red-600 hover:text-red-800 font-medium"
                 >
                   Back to sign in
                 </button>
@@ -188,7 +188,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
                 <button
                   type="button"
                   onClick={() => setIsLogin(!isLogin)}
-                  className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+                  className="text-sm text-red-600 hover:text-red-800 font-medium"
                 >
                   {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
                 </button>
